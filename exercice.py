@@ -22,25 +22,22 @@ def use_prefixes():
 
 
 def prime_integer_summation() -> int:
-    nombre = 0
-    w = 0
-    for i in range(100000):
-        if i == 1:
-            continue
-        elif (i > 2) and ((i % 2 == 0) or ( i // 2 == 2 * i )):
-            continue
-        elif (i > 3) and ((i % 3 == 0) or ( i // 3 == 3 * i )):
-            continue
-        elif (i > 5) and ((i % 5 == 0) or ( i // 5 == 5 * i )):
-            continue
-        elif (i > 7) and ((i % 7 == 0) or ( i // 7 == 7 * i )):
-            continue
-        else:
-            nombre = nombre + i
-            w += 1
-            if w == 100:
-                return nombre
+    prime = [2, 3, 5]
+    number = 6
+    while len(prime) < 100:
+        is_prime = True
+        for i in range(2, number // 2):
+            if number % i == 0:
+                is_prime = False
+                break
 
+        if is_prime:
+            prime.append(number)
+
+        number += 1
+
+    return sum(prime)
+   
 
 def factorial(number: int) -> int:
     n = 1
